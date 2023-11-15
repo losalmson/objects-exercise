@@ -1,24 +1,17 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import './../css/style.css'
+import { createHtmlForPerson } from './htmlHelpers';
+import { Person } from './models/Person';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const p = new Person("Lo", "female", "1998-12-03");
+const p2 = new Person("Tilly", "female", "2001-10-17");
 
-setupCounter(document.querySelector('#counter'))
+const siblings = [p, p2];
+console.log(siblings);
+
+for (let i = 0; i < siblings.length; i++) {
+  createHtmlForPerson(siblings[i]);
+}
+
+
+
+
